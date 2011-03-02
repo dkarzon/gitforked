@@ -80,9 +80,17 @@
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
-    <script src="@(Request.Url.GetLeftPart(UriPartial.Authority))@Url.Content("~/api/1.0/button.js")" type="text/javascript"></script>
+    @if (Context.IsDebuggingEnabled)
+    {
+    <script src="@Url.Content("~/api/1.0/button.js")" type="text/javascript"></script>
+    }
+    else
+    {
+    <script src="http://gitforked.com@(Url.Content("~/api/1.0/button.js"))" type="text/javascript"></script>
+    }
     <script src="@Url.Content("~/assets/scripts/factory.js")" type="text/javascript"></script>
-    @if (Context.IsDebuggingEnabled) {
+    @if (Context.IsDebuggingEnabled)
+    {
         <script src="http://localhost:8001/vogue-client.js"></script>
     }
 </body>
