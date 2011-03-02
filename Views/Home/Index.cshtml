@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Git Forked";
+}
+
+<div id="button-factory">
+    <label>Enter your GitHub repository URL</label>
+    <div>
+        <input type="text" id="repository-url" placeholder="https://github.com/<username>/<repository>" value="https://github.com/andrewdavey/cdncatalog"/>
+        <button id="create-button">Create Button</button>
+    </div>
+    <div id="output">
+        <label>Here's your button</label>
+        <div id="button"></div>
+        <p>Add this HTML where you want the button to appear:</p>
+        <code id="button-html"></code>
+        <p>Then put this script at the bottom of your page:</p>
+        <code>&lt;script src="http://gitforked.com/button.js" type="text/javascript"&gt;&lt;/script&gt;</code>
+    </div>
+</div>

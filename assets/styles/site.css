@@ -1,0 +1,134 @@
+html {
+    background-color: #eee;
+}
+
+body {
+    font-size: 62.5%;
+    font-family: Tahoma, Helvetica, Arial, Sans-Serif;
+    color: #333;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+a {
+    color: #669;
+}
+    
+p {
+    font-size: 1.4em;
+    line-height: 1.4em;
+    margin-bottom: .5em;
+}
+
+h1 {
+    font-family: 'Anton', arial, serif;
+    font-size: 4em;
+    margin-bottom: .5em;
+    font-weight: bold;
+    color: #779;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 2em;
+    font-family: 'Anton', arial, serif;
+    color: #669;
+    text-transform: uppercase;
+}
+p + h2 {
+    margin-top: 1em;
+}    
+
+code {
+    font-family: Consolas, Inconsolata, Courier New, Monospace;
+    font-size: 1.6em;
+    padding: .4em .2em;
+    margin-bottom: .4em;
+    display: block;
+    background-color: #ffd;
+}
+
+
+#wrap {
+    max-width: 90em;
+    margin: 0 auto;
+}
+#header, #footer {
+    padding: 3em;
+    background-color: #f9f9f9;
+}
+#header {
+    margin: 1em 10em 0;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#main {
+    background-color: #fff;
+    border: 1px solid #888;
+    border-radius: .6em;
+    padding: 2em;
+}
+#footer {
+    margin: 0 10em 3em;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;    
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#legal {
+    padding-bottom: 3em;
+}
+#legal p {
+    text-align: center;
+    font-size: 1.1em;
+    color: #888;
+}
+
+#button-factory label, #button-factory input, #button-factory button {
+    font-size: 1.4em;
+    margin-bottom: .5em;
+}
+#button-factory label {
+    display: block;
+    font-weight: bold;
+}
+#button-factory input, #button-factory button {
+    padding: 6px;
+}
+#repository-url {
+    width: 52em;
+}
+#output {
+    display: none;
+    margin-top: 2em;
+}
+#button {
+    margin-bottom: 2em;
+}
+
+.about {
+    float: left;
+    width: 42em;
+}
+.side {
+    float: left;
+    width: 21em;
+    padding: 1em;
+    background-color: #fdfdfd;
+    border: 1px dashed #ccc;
+    font-size: .9em;
+}
+.about p {
+    padding-right: 2em;
+}

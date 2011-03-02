@@ -1,0 +1,49 @@
+﻿.gitforked-button-container {
+    display: inline-block;
+    position: relative;
+    font-family: helvetica,arial,freesans,clean,sans-serif;
+    font-size: 8pt;   
+    font-weight: bold;
+    height: 18px;
+    line-height: 18px;
+}
+
+.gitforked-button {
+    display: inline-block;
+    background-image: url(images/fork-button.png);
+    width: 57px;
+    height: 20px;
+    text-indent: -99999px;
+}
+.gitforked-button:hover {
+    background-position: left -20px;
+}
+.gitforked-button:active {
+    background-position: left -40px;
+}
+    
+.gitforked-count {
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    left: 60px;
+    top: 0px;
+    color: #999;
+    text-decoration: none;
+    background-image: url(images/count-start.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    z-index: 2;
+}
+.gitforked-count:hover {
+    color: #333;
+}
+.gitforked-count span {
+    height: 20px;
+    display: inline-block;
+    background-image: url(images/count-end.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding: 0 6px 0 3px;
+    margin-left: 6px;
+}
