@@ -10,7 +10,7 @@
 
 .gitforked-button {
     display: inline-block;
-    background-image: url(images/fork-button.png);
+    background-image: url(sprites.png);
     width: 57px;
     height: 20px;
     text-indent: -99999px;
@@ -30,9 +30,9 @@
     top: 0px;
     color: #999;
     text-decoration: none;
-    background-image: url(images/count-start.png);
+    background-image: url(sprites.png);
     background-repeat: no-repeat;
-    background-position: left center;
+    background-position: left -80px;
     z-index: 2;
 }
 .gitforked-count:hover {
@@ -41,9 +41,9 @@
 .gitforked-count span {
     height: 20px;
     display: inline-block;
-    background-image: url(images/count-end.png);
+    background-image: url(sprites.png);
     background-repeat: no-repeat;
-    background-position: right center;
+    background-position: right -60px;
     padding: 0 6px 0 3px;
     margin-left: 6px;
 }

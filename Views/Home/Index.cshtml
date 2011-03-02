@@ -1,19 +1,89 @@
-﻿@{
-    ViewBag.Title = "Git Forked";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Git Forked</title>
+    <meta name="description" content="Create fork buttons to promote your open source project." />
+    <link href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css" type="text/css" rel="stylesheet"/>
+    <link href="http://fonts.googleapis.com/css?family=Anton" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/assets/styles/site.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>Git Forked</h1>
+            <div class="about">
+                <p>Promote your <a href="http://github.com/">GitHub</a> hosted, open source project, with a fancy "Fork" button.</p>
+                <p>Add to your home page, blog and anywhere else you see those damn social media buttons!</p>            
+            </div>
+            <div class="side">
+                <div class="example">
+                <p>
+                    Example button:
+                    <span class="gitforked-button-container" style="margin-left: 5px">
+                        <a href="https://github.com/andrewdavey/gitforked" class="gitforked-button">Fork</a>
+                        <a href="https://github.com/andrewdavey/postal/network" class="gitforked-count" title="View the network"><span>42</span></a>
+                    </span>
+                </p>
+                <p>It's a link to the repo page.</p>
+                <p>If there are a forks, the number is shown next to the button.</p>
+                </div>
+            </div>
+            <div style="clear:left"></div>
+        </div>
+        <div id="main">
+            <div id="button-factory">
+                <label>Enter your GitHub repository URL</label>
+                <div>
+                    <input type="text" id="repository-url" placeholder="https://github.com/<username>/<repository>" value="https://github.com/andrewdavey/cdncatalog"/>
+                    <button id="create-button">Create Button</button>
+                </div>
+                <div id="output">
+                    <label>Here's your button</label>
+                    <div id="button"></div>
+                    <p>Add this HTML where you want the button to appear:</p>
+                    <code id="button-html"></code>
+                    <p>Then put this script at the bottom of your page:</p>
+                    <code>&lt;script src="http://gitforked.com/api/1.0/button.js" type="text/javascript"&gt;&lt;/script&gt;</code>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="about">
+                <h2>About</h2>
+                <p>I'm <a href="http://aboutcode.net/">Andrew Davey</a>. I spent a day hacking together Git Forked
+                mostly for the fun of it!</p>
+                <p>I enjoy creating open source projects and GitHub is simply the most awesome
+                place to do that. It's always great to collaborate with others. 
+                A Git Forked button helps me encourage people to get involved.</p>
+                <h2>Contact</h2>
+                <p>I'd love to hear from you!</p>
+                <p><a href="http://twitter.com/andrewdavey">Follow me on twitter</a></p>
+                <p><a href="http://aboutcode.net/">Read the blog</a></p>
+                <p><a href="mailto:andrew@equin.co.uk">Email me</a></p>
+            </div>
+            <div class="side">
+                <p>Tell your friends:</p>
+                <p>
+                    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://gitforked.com/" data-count="horizontal" data-via="andrewdavey">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                    <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fgitforked.com%2F&amp;layout=standard&amp;show_faces=false&amp;width=210&amp;action=like&amp;font=verdana&amp;colorscheme=light&amp;height=40" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:210px; height:40px;" allowTransparency="true"></iframe>
+                </p>
+                <p>Fork Git Forked:</p>
+                <p>
+                    <a href="https://github.com/andrewdavey/gitforked" class="gitforked-button">Fork</a>
+                </p>
+            </div>
+            <div style="clear:left"></div>
+        </div>
+        <div id="legal">
+            <p>Andrew Davey is not affliated with GitHub Inc., he just loves using their services.</p>
+        </div>
+    </div>
 
-<div id="button-factory">
-    <label>Enter your GitHub repository URL</label>
-    <div>
-        <input type="text" id="repository-url" placeholder="https://github.com/<username>/<repository>" value="https://github.com/andrewdavey/cdncatalog"/>
-        <button id="create-button">Create Button</button>
-    </div>
-    <div id="output">
-        <label>Here's your button</label>
-        <div id="button"></div>
-        <p>Add this HTML where you want the button to appear:</p>
-        <code id="button-html"></code>
-        <p>Then put this script at the bottom of your page:</p>
-        <code>&lt;script src="http://gitforked.com/button.js" type="text/javascript"&gt;&lt;/script&gt;</code>
-    </div>
-</div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="@(Request.Url.GetLeftPart(UriPartial.Authority))@Url.Content("~/api/1.0/button.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/assets/scripts/factory.js")" type="text/javascript"></script>
+    @if (Context.IsDebuggingEnabled) {
+        <script src="http://localhost:8001/vogue-client.js"></script>
+    }
+</body>
+</html>

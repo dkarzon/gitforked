@@ -1,14 +1,14 @@
 ﻿window.GitForked = (function () {
+    var apiBaseUrl  = findApiBaseUrl();
     var constants = {
         buttonCssClass : "gitforked-button",
         containerCssClass : "gitforked-button-container",
         forkCountCssClass: "gitforked-count",
-        cssUrl: "/assets/styles/button.css",
+        cssUrl: apiBaseUrl + "button.css",
         githubRepoQuery: "http://github.com/api/v2/json/repos/show/"
     };
 
     init();
-
     return {
         createButton: createButton
     };
@@ -20,6 +20,19 @@
         while (i--) {
             createButton(links[i]);
         }
+    }
+    
+    function findApiBaseUrl() {
+        var scripts = document.getElementsByTagName("script");
+        var i = scripts.length;
+        while (i--) {
+            var src = scripts[i].getAttribute("src");
+            var match = /^(.*gitforked.*\/api\/.*\/)button\.js/.exec(src);
+            if (match) {
+                return match[1];
+            }
+        }
+        return null;
     }
 
     function addStylesheet() {
