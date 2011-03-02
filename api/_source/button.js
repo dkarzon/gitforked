@@ -95,7 +95,8 @@
 
     function getRepoInfo(repoUrl, callback) {
         var path = repoUrl.match(/[^/]+\/[^/]+$/)[0];
-        var callbackName = "forkButtonCallback" + (new Date().getTime());
+        getRepoInfo.nextId = (getRepoInfo.nextId || 0) + 1;
+        var callbackName = "forkButtonCallback" + getRepoInfo.nextId;
         var url = constants.githubRepoQuery + path + "?callback=" + callbackName;
 
         var script = document.createElement("script");
@@ -110,6 +111,7 @@
             } catch (epicIEFail) {
                 window[callbackName] = null;
             }
+            script.parentNode.removeChild(script);
         };
     }
 

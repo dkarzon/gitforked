@@ -119,7 +119,7 @@ code {
 
 .about {
     float: left;
-    width: 42em;
+    width: 42.5em;
 }
 .side {
     float: left;
@@ -131,4 +131,7 @@ code {
 }
 .about p {
     padding-right: 2em;
+}
+#header .about p {
+    font-size: 1.65em;
 }
