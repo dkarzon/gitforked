@@ -64,8 +64,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="api\1.0\button.css" />
+    <Content Include="api\1.0\button.js" />
+    <Content Include="api\1.0\sprites.png" />
+    <Content Include="api\_source\button.js" />
+    <Content Include="assets\scripts\factory.js" />
+    <Content Include="api\_source\button.css" />
+    <Content Include="api\_source\count-end.png" />
+    <Content Include="api\_source\fork-button.png" />
+    <Content Include="api\_source\count-start.png" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="assets\styles\site.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -74,13 +83,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
