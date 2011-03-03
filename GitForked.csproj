@@ -73,6 +73,7 @@
     <Content Include="api\_source\count-end.png" />
     <Content Include="api\_source\fork-button.png" />
     <Content Include="api\_source\count-start.png" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="assets\styles\site.css" />
     <Content Include="Web.config" />

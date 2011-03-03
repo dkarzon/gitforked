@@ -66,6 +66,12 @@
     function createButton(link) {
         var container = wrapInContainer(link);
         var repoUrl = link.getAttribute("href");
+        var title = link.getAttribute("title");
+        if (title) {
+            link.setAttribute("title", title + " - Button by gitforked.com");
+        } else {
+            link.setAttribute("title", "Button by gitforked.com");
+        }
         getRepoInfo(repoUrl, function(repository) {
             if (repository.forks > 1) {
                 var networkLink = createNetworkLink(repoUrl, repository.forks.toString());
