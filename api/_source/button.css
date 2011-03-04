@@ -22,23 +22,18 @@
     background-position: left -40px;
 }
     
-.gitforked-count {
+.gitforked-bubble {
     height: 20px;
     line-height: 20px;
     position: absolute;
     left: 60px;
     top: 0px;
-    color: #999;
-    text-decoration: none;
     background-image: url(sprites.png);
     background-repeat: no-repeat;
     background-position: left -80px;
     z-index: 2;
 }
-.gitforked-count:hover {
-    color: #333;
-}
-.gitforked-count span {
+.gitforked-bubble-inner {
     height: 20px;
     display: inline-block;
     background-image: url(sprites.png);
@@ -46,4 +41,18 @@
     background-position: right -60px;
     padding: 0 6px 0 3px;
     margin-left: 6px;
+}
+
+.gitforked-bubble a {
+    text-decoration: none;
+    color: #999;    
+}
+.gitforked-bubble a:hover {
+    color: #333;
+}
+
+.gitforked-splitter {
+    padding: 0 5px 0 0;
+    margin: 0 0 0 5px;
+    border-left: 1px solid #DBDBDB;
 }

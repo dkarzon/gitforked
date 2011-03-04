@@ -2,8 +2,12 @@
     var apiBaseUrl  = findApiBaseUrl();
     var constants = {
         buttonCssClass : "gitforked-button",
+        watchersCssClass: "gitforked-watchers",
+        forksCssClass: "gitforked-forks",
+        splitterCssClass: "gitforked-splitter",
         containerCssClass : "gitforked-button-container",
-        forkCountCssClass: "gitforked-count",
+        bubbleCssClass: "gitforked-bubble",
+        bubbleInnerCssClass: "gitforked-bubble-inner",
         cssUrl: apiBaseUrl + "button.css",
         githubRepoQuery: "http://github.com/api/v2/json/repos/show/"
     };
@@ -65,29 +69,65 @@
 
     function createButton(link) {
         var container = wrapInContainer(link);
-        var repoUrl = link.getAttribute("href");
         var title = link.getAttribute("title");
         if (title) {
-            link.setAttribute("title", title + " - Button by gitforked.com");
+            title += " - Button by gitforked.com";
         } else {
-            link.setAttribute("title", "Button by gitforked.com");
+            title = "Button by gitforked.com";
         }
-        getRepoInfo(repoUrl, function(repository) {
-            if (repository.forks > 1) {
-                var networkLink = createNetworkLink(repoUrl, repository.forks.toString());
-                container.appendChild(networkLink);
-            }
-        });
+        link.setAttribute("title", title);
 
-        function createNetworkLink(repoUrl, text) {
-            var networkLink = document.createElement("a");
-            networkLink.setAttribute("href", repoUrl + "/network");
-            networkLink.setAttribute("class", constants.forkCountCssClass);
-            networkLink.setAttribute("title", "View the network");
-            var networkSpan = document.createElement("span");
-            networkSpan.appendChild(document.createTextNode(text));
-            networkLink.appendChild(networkSpan);
-            return networkLink;
+        var repoUrl = link.getAttribute("href");
+        var showForks = hasClass(link, constants.forksCssClass);
+        var showWatchers = hasClass(link, constants.watchersCssClass);
+        if (showForks || showWatchers) {
+            getRepoInfo(repoUrl, function(repository) {
+                var bubble = createBubble(
+                    repoUrl, 
+                    showForks ? repository.forks    : 0,
+                    showWatchers ? repository.watchers : 0
+                );
+                container.appendChild(bubble);
+            });
+        }
+
+        function createBubble(repoUrl, forks, watchers) {
+            var bubbleOuter = document.createElement("span");
+            bubbleOuter.setAttribute("class", constants.bubbleCssClass);
+            var bubbleInner = document.createElement("span");
+            bubbleInner.setAttribute("class", constants.bubbleInnerCssClass);
+
+            var nodes = [];
+            if (forks > 0) {
+                nodes.push(createLink(forks, repoUrl + "/network", "Forks"));
+            }
+            if (watchers > 0) {
+                if (nodes.length > 0) {
+                    nodes.push(createSplitter());
+                }
+                nodes.push(createLink(watchers, repoUrl + "/watchers", "Watchers"));
+            }
+
+            for (var i = 0, l = nodes.length; i < l; i++) {
+                bubbleInner.appendChild(nodes[i]);
+            }
+            bubbleOuter.appendChild(bubbleInner);
+
+            return bubbleOuter;
+
+            function createLink(content, href, title) {
+                var a = document.createElement("a");
+                a.setAttribute("href", href);
+                a.setAttribute("title", title);
+                a.appendChild(document.createTextNode(content.toString()));
+                return a;
+            }
+
+            function createSplitter() {
+                var splitter = document.createElement("span");
+                splitter.setAttribute("class", constants.splitterCssClass);
+                return splitter;
+            }
         }
 
         function wrapInContainer(link) {
@@ -97,6 +137,11 @@
             container.appendChild(link);
             return container;
         }
+    }
+
+    function hasClass(element, name) {
+        var cssClass = element.getAttribute("class");
+        return cssClass && cssClass.match(new RegExp("\\b" + name + "\\b"));
     }
 
     function getRepoInfo(repoUrl, callback) {

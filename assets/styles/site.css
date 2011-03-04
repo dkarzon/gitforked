@@ -46,8 +46,10 @@ p + h2 {
     margin-top: 1em;
 }    
 
-code {
+pre, code {
     font-family: Consolas, Inconsolata, Courier New, Monospace;
+}
+code {
     font-size: 1.6em;
     padding: .4em .2em;
     margin-bottom: .4em;
@@ -99,12 +101,15 @@ code {
     font-size: 1.4em;
     margin-bottom: .5em;
 }
-#button-factory label {
+#repository-url-label, #output label {
     display: block;
     font-weight: bold;
 }
 #button-factory input, #button-factory button {
     padding: 6px;
+}
+#button-factory input[type=checkbox] {
+    margin: 0 .2em 0 .6em;
 }
 #repository-url {
     width: 51em;
