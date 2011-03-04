@@ -67,6 +67,7 @@
     <Content Include="api\1.0\button.css" />
     <Content Include="api\1.0\button.js" />
     <Content Include="api\1.0\sprites.png" />
+    <Content Include="api\1.1\sprites.png" />
     <Content Include="api\_source\button.js" />
     <Content Include="api\_source\sprites.png" />
     <Content Include="assets\scripts\factory.js" />
