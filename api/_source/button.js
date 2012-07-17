@@ -9,7 +9,7 @@
         bubbleCssClass: "gitforked-bubble",
         bubbleInnerCssClass: "gitforked-bubble-inner",
         cssUrl: apiBaseUrl + "button.css",
-        githubRepoQuery: "http://github.com/api/v2/json/repos/show/"
+        githubRepoQuery: "https://api.github.com/repos/"
     };
 
     init();
@@ -155,7 +155,7 @@
         document.body.appendChild(script);
 
         window[callbackName] = function (data) {
-            callback(data.repository);
+            callback(data.data);
             
             try {
                 delete window[callbackName];
